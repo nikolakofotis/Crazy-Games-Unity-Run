@@ -89,6 +89,7 @@ public class UserLogin : MonoBehaviour
             }
             else
             {
+                StartCoroutine(currentUser.FetchUsers("http://localhost/UnityServer/FetchUser.php", nameField.text));
                 Debug.Log("Form upload complete!");
                 CheckHandler(www.downloadHandler.text,"r");
                 

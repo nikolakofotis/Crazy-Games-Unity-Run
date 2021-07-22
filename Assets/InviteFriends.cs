@@ -32,5 +32,7 @@ public class InviteFriends : MonoBehaviour
         mainMenuCanvas.SetActive(true);
         gameObject.SetActive(false);
     }
+
+
 }
 

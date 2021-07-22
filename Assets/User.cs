@@ -7,6 +7,9 @@ public class User : MonoBehaviour
 {
     public string currentUsername, currentEmail;
     public int currentLives, currentScore,id;
+    public List<Games> gamesPlayed = new List<Games>();
+    public int platformer, action, puzzle, strategy, rpg, sports, adventure, racing, card;
+    public Dictionary<string, int> genres = new Dictionary<string, int>();
 
    
 
@@ -14,12 +17,41 @@ public class User : MonoBehaviour
     void Start()
     {
         //StartCoroutine(FetchUsers("http://localhost/UnityServer/FetchUser.php", "fotis"));
+        
     }
 
     
     void Update()
     {
         
+    }
+
+    public void AddGame(string s)
+    {
+       if(!genres.ContainsKey(s))
+        {
+            genres.Add(s, 1);
+        }
+       else
+        {
+           
+            genres[s]++;
+        }
+       
+    }
+
+    public void GetValues()
+    {
+        platformer = genres["platformer"]  ;
+        action= genres["action"] ;
+        puzzle =genres["puzzle"]  ;
+        strategy= genres["strategy"]  ;
+        rpg =genres["rpg"]  ;
+        sports= genres["sports"]  ;
+        adventure =genres["adventure"]  ;
+        racing= genres["racing"]  ;
+        card =genres["card"]  ;
+
     }
 
     public void SetCurrentUser(string uname, string e_mail, int live, int sc , int id)
